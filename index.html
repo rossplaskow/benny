@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$benny</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffff07; /* Background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Ensures the image scales to the width of the browser */
+            height: auto; /* Maintains aspect ratio */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .text {
+            font-family: "Helvetica", sans-serif; /* Replace with other font options */
+            font-size: 2em; /* Adjust size for scaling */
+            font-weight: bold; /* Make the text bold */
+            color: black; /* Text color */
+            text-align: center;
+            max-width: calc(100% -60px); /* Leaves 300px margin on both sides */
+            margin: 0 auto 10px; /* Reduces bottom margin to 10px */
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        img.center {
+            transform: scale(0.25); /* Scales the image */
+            max-width: 100%;
+            max-height: 100%;
+            margin-top: -140px; /* Removes unnecessary top space */
+        }
+
+
+        .logos-container {
+            position: absolute;
+            bottom: 10px;
+            display: flex;
+            gap: 0px; /* Space between the logos */
+        }
+
+        .logo-link {
+            transition: transform 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .logo-link:hover {
+            transform: translateY(-10px); /* Move up by 10px on hover */
+        }
+
+        img.logo {
+            width: 100px; /* Adjust as needed for your logo size */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <img src="clouds.png" alt="Clouds" class="clouds">
+
+    <div class="container">
+        <div class="text">
+            $benny
+        </div>
+        
+        <img src="benny.png" alt="Benny" class="center">
+    </div>
+
+    <div class="logos-container">
+        <a href="https://pump.fun" class="logo-link" target="_blank">
+            <img src="PF_logo.png" alt="PF Logo" class="logo">
+        </a>
+        <a href="https://x.com/benny_meme" class="logo-link" target="_blank">
+            <img src="X_logo.png" alt="X Logo" class="logo">
+        </a>
+    </div>
+</body>
+</html>
