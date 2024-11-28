@@ -8,86 +8,59 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #ffff07; /* Background color */
+            background-color: #ffff07;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             overflow: hidden;
-            position: relative;
-        }
-
-        .clouds {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%; /* Ensures the image scales to the width of the browser */
-            height: auto; /* Maintains aspect ratio */
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .text {
-            font-family: "Helvetica", sans-serif; /* Replace with other font options */
-            font-size: 2em; /* Adjust size for scaling */
-            font-weight: bold; /* Make the text bold */
-            color: black; /* Text color */
+            font-family: "Helvetica", sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            color: black;
+            margin: 0 0 20px 0; /* Adds space between the text and image */
             text-align: center;
-            max-width: calc(100% -60px); /* Leaves 300px margin on both sides */
-            margin: 0 auto 10px; /* Reduces bottom margin to 10px */
-            box-sizing: border-box; /* Ensures padding is included in width */
         }
 
         img.center {
-            transform: scale(0.25); /* Scales the image */
-            max-width: 100%;
-            max-height: 100%;
-            margin-top: -140px; /* Removes unnecessary top space */
+            width: 200px; /* Fixed width for the image */
+            height: auto; /* Maintain aspect ratio */
         }
-
 
         .logos-container {
             position: absolute;
-            bottom: 10px;
+            bottom: 20px;
             display: flex;
-            gap: 0px; /* Space between the logos */
+            gap: 20px; /* Space between the logos */
         }
 
-        .logo-link {
-            transition: transform 0.3s ease; /* Smooth transition for hover effect */
-        }
-
-        .logo-link:hover {
-            transform: translateY(-10px); /* Move up by 10px on hover */
-        }
-
-        img.logo {
-            width: 100px; /* Adjust as needed for your logo size */
+        .logo-link img {
+            width: 100px; /* Fixed logo size */
             height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-link:hover img {
+            transform: translateY(-10px);
         }
     </style>
 </head>
 <body>
-    <img src="clouds.png" alt="Clouds" class="clouds">
-
-    <div class="container">
-        <div class="text">
-            $benny
-        </div>
-        
-        <img src="benny.png" alt="Benny" class="center">
+    <div class="text">
+        $benny
     </div>
+    <img src="benny.png" alt="Benny" class="center">
 
     <div class="logos-container">
         <a href="https://pump.fun" class="logo-link" target="_blank">
-            <img src="pf_logo.png" alt="PF Logo" class="logo">
+            <img src="PF_logo.png" alt="PF Logo">
         </a>
         <a href="https://x.com/benny_meme" class="logo-link" target="_blank">
-            <img src="x_logo.png" alt="X Logo" class="logo">
+            <img src="X_logo.png" alt="X Logo">
         </a>
     </div>
 </body>
