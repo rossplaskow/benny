@@ -12,11 +12,17 @@
             background-color: #ffff07;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center the main content */
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative; /* To position the footer absolutely */
+            min-height: 100vh; /* Ensure the body fills at least the viewport height */
+        }
+
+        .main-content {
+            flex: 1; /* Allows main content to grow and fill available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center;     /* Center horizontally */
+            /* Optional padding to prevent content from touching the edges */
+            padding: 20px;
         }
 
         .text {
@@ -35,7 +41,6 @@
 
         .logos-container {
             display: flex;
-
             margin-top: 20px; /* Adds space between the center image and logos */
         }
 
@@ -53,32 +58,34 @@
             font-family: "Helvetica", sans-serif;
             font-size: 0.8em;
             color: black;
-            position: absolute;
-            bottom: 40px; /* Pin to the bottom */
             text-align: center;
             width: 90%; /* Ensure it stays centered */
+            margin: 0 auto 40px auto; /* Center horizontally and add bottom margin */
+            /* Push footer to the bottom when content is short */
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
-    <div class="text">
-        $benny
-    </div>
-    <img src="benny.png" alt="Benny" class="center">
+    <div class="main-content">
+        <div class="text">
+            $benny
+        </div>
+        <img src="benny.png" alt="Benny" class="center">
 
-    <div class="logos-container">
-        <a href="https://pump.fun" class="logo-link" target="_blank">
-            <img src="pf_logo.png" alt="PF Logo">
-        </a>
-        <a href="https://x.com/benny_meme" class="logo-link" target="_blank">
-            <img src="x_logo.png" alt="X Logo">
-        </a>
+        <div class="logos-container">
+            <a href="https://pump.fun" class="logo-link" target="_blank">
+                <img src="pf_logo.png" alt="PF Logo">
+            </a>
+            <a href="https://x.com/benny_meme" class="logo-link" target="_blank">
+                <img src="x_logo.png" alt="X Logo">
+            </a>
+        </div>
     </div>
 
     <div class="footer">
         this is a meme coin with zero intrinsic value or expectation of financial return. this coin was created because i like drawing benny. i will continue to draw benny into the future.<br><br>
         please be kind to benny.
-
     </div>
 </body>
 </html>
