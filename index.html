@@ -10,11 +10,12 @@
             padding: 0;
             background-color: #ffff07;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            justify-content: center; /* Center the main content */
+            align-items: center;
             height: 100vh;
             overflow: hidden;
+            position: relative; /* To position the footer absolutely */
         }
 
         .text {
@@ -27,15 +28,14 @@
         }
 
         img.center {
-            width: 200px; /* Fixed width for the image */
+            width: 150px; /* Fixed width for the image */
             height: auto; /* Maintain aspect ratio */
         }
 
         .logos-container {
-            position: absolute;
-            bottom: 20px;
             display: flex;
-            gap: 20px; /* Space between the logos */
+
+            margin-top: 20px; /* Adds space between the center image and logos */
         }
 
         .logo-link img {
@@ -47,6 +47,16 @@
         .logo-link:hover img {
             transform: translateY(-10px);
         }
+
+        .footer {
+            font-family: "Helvetica", sans-serif;
+            font-size: 0.8em;
+            color: black;
+            position: absolute;
+            bottom: 40px; /* Pin to the bottom */
+            text-align: center;
+            width: 90%; /* Ensure it stays centered */
+        }
     </style>
 </head>
 <body>
@@ -57,11 +67,17 @@
 
     <div class="logos-container">
         <a href="https://pump.fun" class="logo-link" target="_blank">
-            <img src="PF_logo.png" alt="PF Logo">
+            <img src="pf_logo.png" alt="PF Logo">
         </a>
         <a href="https://x.com/benny_meme" class="logo-link" target="_blank">
-            <img src="X_logo.png" alt="X Logo">
+            <img src="x_logo.png" alt="X Logo">
         </a>
+    </div>
+
+    <div class="footer">
+        this is a meme coin with zero intrinsic value or expectation of financial return. this coin was created because i like drawing benny. i will continue to draw benny into the future.<br><br>
+        please be kind to benny.
+
     </div>
 </body>
 </html>
