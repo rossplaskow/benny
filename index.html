@@ -13,6 +13,17 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh; /* Ensure the body fills at least the viewport height */
+            position: relative; /* Make body a positioned container for layering */
+        }
+
+        #rive-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: transparent;
+            z-index: -10; /* Ensures the canvas is beneath everything */
         }
 
         .main-content {
@@ -21,8 +32,7 @@
             flex-direction: column;
             justify-content: center; /* Center vertically */
             align-items: center;     /* Center horizontally */
-            /* Optional padding to prevent content from touching the edges */
-            padding: 20px;
+            padding: 20px; /* Prevent content from touching the edges */
         }
 
         .text {
@@ -61,12 +71,15 @@
             text-align: center;
             width: 90%; /* Ensure it stays centered */
             margin: 0 auto 40px auto; /* Center horizontally and add bottom margin */
-            /* Push footer to the bottom when content is short */
-            margin-top: auto;
+            margin-top: auto; /* Push footer to the bottom when content is short */
         }
     </style>
 </head>
 <body>
+    <!-- Rive Canvas -->
+    <canvas id="rive-canvas"></canvas>
+
+    <!-- Main Content -->
     <div class="main-content">
         <div class="text">
             $benny
@@ -87,5 +100,52 @@
         this is a meme coin with zero intrinsic value or expectation of financial return. this coin was created because i like drawing benny. i will continue to draw benny into the future.<br><br>
         please be kind to benny.
     </div>
+
+    <!-- Rive Integration -->
+    <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
+    <script>
+      // ---------------------------------
+      // The layout of the graphic will adhere to
+      const layout = new rive.Layout({
+        fit: rive.Fit.Layout, // Setting to Fit.Layout will auto update the artboard size
+        layoutScaleFactor: 0.6,
+      });
+
+      // ---------------------------------
+      // HTML Canvas element to render to
+      const riveCanvas = document.getElementById("rive-canvas");
+
+      function computeSize() {
+        riveInstance.resizeDrawingSurfaceToCanvas(1);
+      }
+
+      // Subscribe to window size changes and update call `resizeDrawingSurfaceToCanvas`
+      window.onresize = computeSize;
+
+      // Subscribe to devicePixelRatio changes and call `resizeDrawingSurfaceToCanvas`
+      window
+        .matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`)
+        .addEventListener("change", computeSize);
+
+      // NOTE: This function is not called in this example.
+      function cleanUpRive() {
+        riveInstance.cleanup();
+      }
+
+      const riveInstance = new rive.Rive({
+        // Load a local riv
+        src: "benny_bg.riv",
+        // Be sure to specify the correct state machine (or animation) name
+        stateMachines: "State Machine 1", // Name of the State Machine to play
+        canvas: riveCanvas,
+        // artboard: "Artboard" // Optionally provide the artboard to display
+        layout: layout, // This is optional. Provides additional layout control.
+        autoplay: true,
+        onLoad: () => {
+          // Prevent a blurry canvas by using the device pixel ratio
+          riveInstance.resizeDrawingSurfaceToCanvas();
+        },
+      });
+    </script>
 </body>
 </html>
